@@ -18,12 +18,14 @@ $app->get('/', function () use ($app) {
 $app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], function($app)
 {
     $app->get('product','ProductController@index');
-
     $app->get('product/{id}','ProductController@getproduct');
-
     $app->post('product','ProductController@createProduct');
-
     $app->put('product/{id}','ProductController@updateProduct');
-
     $app->delete('product/{id}','ProductController@deleteProduct');
+
+    $app->get('category','CategoryController@index');
+    $app->get('category/{id}','CategoryController@getcategory');
+    $app->post('category','CategoryController@createCategory');
+    $app->put('category/{id}','CategoryController@updateCategory');
+    $app->delete('category/{id}','CategoryController@deleteCategory');
 });
