@@ -14,3 +14,16 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
+
+$app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], function($app)
+{
+    $app->get('product','ProductController@index');
+
+    $app->get('product/{id}','ProductController@getproduct');
+
+    $app->post('product','ProductController@createProduct');
+
+    $app->put('product/{id}','ProductController@updateProduct');
+
+    $app->delete('product/{id}','ProductController@deleteProduct');
+});
