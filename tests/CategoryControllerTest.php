@@ -6,19 +6,12 @@
  * Time: 1:36 AM
  */
 
-namespace tests;
-
 
 use Laravel\Lumen\Testing\DatabaseMigrations;
 
-class CategoryControllerTest extends \PHPUnit_Framework_TestCase
+class CategoryControllerTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function testPostBasic() {
-        $this->json('POST', '/category', ['name' => 'Category A'])
-            ->seeJson([
-                'created' => true,
-            ]);
-    }
+    
 }

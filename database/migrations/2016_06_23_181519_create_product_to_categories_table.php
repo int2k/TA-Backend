@@ -12,11 +12,11 @@ class CreateProductToCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_to_categories', function (Blueprint $table) {
-            $table->integer('product_id')->unsigned();
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('product_id')->references('id')->on('products');
+        Schema::create('products_categories', function (Blueprint $table) {
+            $table->integer('products_id')->unsigned();
+            $table->integer('categories_id')->unsigned();
+            $table->foreign('categories_id')->references('id')->on('categories');
+            $table->foreign('products_id')->references('id')->on('products');
         });
     }
 
@@ -27,6 +27,6 @@ class CreateProductToCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('product_to_categories');
+        Schema::drop('products_categories');
     }
 }

@@ -15,17 +15,12 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index(){
-
         $Products  = Product::all();
-
         return response()->json($Products);
-
     }
 
     public function getProduct($id){
-
         $Product  = Product::find($id);
-
         return response()->json($Product);
     }
 
@@ -46,10 +41,18 @@ class ProductController extends Controller
 
     public function updateProduct(Request $request,$id){
         $Product  = Product::find($id);
-        $Product->title = $request->input('title');
-        $Product->author = $request->input('author');
-        $Product->isbn = $request->input('isbn');
+        $Product->name = $request->input('name');
+        $Product->price = $request->input('price');
         $Product->save();
+
+        return response()->json($Product);
+    }
+
+    public function updateCategory(Request $request,$id) {
+        $categories = $request->input('category');
+        $Product  = Product::find($id);
+        $Product->categories()->detach();
+        $Product->categories()->attach($categories);
 
         return response()->json($Product);
     }
