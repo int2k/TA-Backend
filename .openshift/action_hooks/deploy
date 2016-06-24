@@ -112,18 +112,18 @@ if [  -f ${OPENSHIFT_REPO_DIR}.openshift/.env ]; then
   cp -f ${OPENSHIFT_REPO_DIR}.openshift/.env ${OPENSHIFT_REPO_DIR}/.env
 fi
 
-echo "Create APP_KEY..." 1>&2
-if [ ! -f "$OPENSHIFT_HOMEDIR/.env/user_vars/APP_KEY" ]; then
-  export APP_KEY="$(php $OPENSHIFT_REPO_DIR/artisan key:generate --show)";
-  if [ "$(type -t set_env_var)" == "function" ]; then
-    set_env_var 'APP_KEY' $APP_KEY $OPENSHIFT_HOMEDIR/.env/user_vars
-  fi
-else
-   export APP_KEY="$(cat $OPENSHIFT_HOMEDIR/.env/user_vars/APP_KEY)";
-  if [ "$(type -t set_env_var)" == "function" ]; then
-    set_env_var 'APP_KEY' $APP_KEY $OPENSHIFT_HOMEDIR/.env/user_vars
-  fi
-fi
+##echo "Create APP_KEY..." 1>&2
+#if [ ! -f "$OPENSHIFT_HOMEDIR/.env/user_vars/APP_KEY" ]; then
+#  export APP_KEY="$(php $OPENSHIFT_REPO_DIR/artisan key:generate --show)";
+#  if [ "$(type -t set_env_var)" == "function" ]; then
+#    set_env_var 'APP_KEY' $APP_KEY $OPENSHIFT_HOMEDIR/.env/user_vars
+#  fi
+#else
+#   export APP_KEY="$(cat $OPENSHIFT_HOMEDIR/.env/user_vars/APP_KEY)";
+#  if [ "$(type -t set_env_var)" == "function" ]; then
+#    set_env_var 'APP_KEY' $APP_KEY $OPENSHIFT_HOMEDIR/.env/user_vars
+#  fi
+#fi
 
 # echo "Running config cache"
 # php ${OPENSHIFT_REPO_DIR}/artisan config:clear
