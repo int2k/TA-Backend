@@ -88,6 +88,6 @@ else
   fi
 fi
 
-echo "Running config cache"
-php ${OPENSHIFT_REPO_DIR}/artisan config:clear
-php ${OPENSHIFT_REPO_DIR}/artisan config:cache
+#echo "Running config cache"
+#php ${OPENSHIFT_REPO_DIR}/artisan config:clear
+#php ${OPENSHIFT_REPO_DIR}/artisan config:cache
