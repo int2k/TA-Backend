@@ -99,19 +99,20 @@ if [ ! -d ${OPENSHIFT_DATA_DIR}storage ]; then
   mv ${OPENSHIFT_REPO_DIR}storage ${OPENSHIFT_DATA_DIR}storage
   rm -rf ${OPENSHIFT_DATA_DIR}storage/logs
 fi
-
+echo "Create symlink to new storage directory location..." 1>&2
 # Create symlink to new storage directory location
 ln -sf ${OPENSHIFT_DATA_DIR}storage   ${OPENSHIFT_REPO_DIR}storage
-
+echo "Create symlink to new log directory location..." 1>&2
 # Create a symlink to the new log directory location
 ln -sf ${OPENSHIFT_LOG_DIR}   ${OPENSHIFT_DATA_DIR}storage/logs
 
+echo "Use repository .env" 1>&2
 # Use repository .env
 if [  -f ${OPENSHIFT_REPO_DIR}.openshift/.env ]; then
   cp -f ${OPENSHIFT_REPO_DIR}.openshift/.env ${OPENSHIFT_REPO_DIR}/.env
 fi
 
-
+echo "Create APP_KEY..." 1>&2
 if [ ! -f "$OPENSHIFT_HOMEDIR/.env/user_vars/APP_KEY" ]; then
   export APP_KEY="$(php $OPENSHIFT_REPO_DIR/artisan key:generate --show)";
   if [ "$(type -t set_env_var)" == "function" ]; then
