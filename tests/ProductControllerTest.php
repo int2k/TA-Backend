@@ -13,17 +13,17 @@ class ProductControllerTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function testCategoryBasic() {
-        $this->json('POST', '/api/v1/category', ['name' => 'Category A'])
-            ->seeJson([
-                'name' => 'Category A',
-            ]);
-    }
+//    public function testCategoryBasic() {
+//        $this->json('POST', '/api/v1/category', ['name' => 'Category A'])
+//            ->seeJson([
+//                'name' => 'Category A',
+//            ]);
+//    }
 
     public function testPostBasic() {
-        $this->json('POST', '/api/v1/product', ['name' => 'Product A', 'price'=> 10])
+        $this->json('POST', '/api/v1/product', ['name' => 'Product A', 'price'=> 10, 'color'=> '', 'size' => ''])
             ->seeJson([
-                'name' => 'Category A',
+                'name' => 'Product A',
             ]);
     }
 }
