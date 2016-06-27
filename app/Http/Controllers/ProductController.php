@@ -43,6 +43,8 @@ class ProductController extends Controller
         $Product  = Product::find($id);
         $Product->name = $request->input('name');
         $Product->price = $request->input('price');
+        $Product->color = $request->input('color');
+        $Product->size = $request->input('size');
         $Product->save();
 
         return response()->json($Product);

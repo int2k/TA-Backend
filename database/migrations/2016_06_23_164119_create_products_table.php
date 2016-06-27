@@ -16,6 +16,8 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->decimal('price')->defaultValue(0);
+            $table->string('color')->nullable();
+            $table->string('size')->nullable();
             $table->timestamps();
         });
     }
