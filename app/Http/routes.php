@@ -12,9 +12,17 @@
 */
 
 $app->get('/', function () use ($app) {
-    return view('home', ['version' => $app->version()]);
+    return $app->version();
+//    return view('home', ['version' => $app->version()]);
 });
-
+$app->get('/product', function () use ($app) {
+//    return $app->version();
+    return view('product', ['version' => $app->version()]);
+});
+$app->get('/category', function () use ($app) {
+//    return $app->version();
+    return view('category', ['version' => $app->version()]);
+});
 $app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], function($app)
 {
     $app->get('product','ProductController@index');
