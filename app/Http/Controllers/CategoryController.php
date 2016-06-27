@@ -6,10 +6,10 @@
  * Time: 1:31 AM
  */
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
 
-use app\Category;
+use App\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller

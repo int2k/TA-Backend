@@ -14,7 +14,7 @@ class ProductControllerTest extends TestCase
     use DatabaseMigrations;
 
     public function testPostBasic() {
-        $this->json('POST', '/api/v1/product', ['name' => 'Category A', 'price'=> 10])
+        $this->json('POST', '/api/v1/product', ['name' => 'Product A', 'price'=> 10])
             ->seeJson([
                 'name' => 'Category A',
             ]);
